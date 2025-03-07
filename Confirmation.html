@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <style>
+         *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+            }
+            body{
+                background-color:navy;
+            }
+            .container{
+                display:flex;
+                flex-direction:column;
+                align-content: center;
+                align-items: center;
+                
+                background-color:white;
+                border:1px solid white;
+                border-radius:15px;
+                width:25%;
+                margin:auto;
+                transform:translateY(50%);
+                
+            }
+            .container > div{
+                display:grid;
+                grid-template-rows:auto auto auto auto;
+                padding:8%;
+                
+            }
+            h1{
+                color:navy;
+                font-size:35px;
+                letter-spacing:1px;
+            }
+            i{
+                color:orangered;
+                
+            }
+            .inner-container >i {
+                margin-bottom: 8px;
+            }
+            .inner-container >p {
+                margin-bottom: 8px;
+            }
+            .text{
+                font-size:10px;
+                font-family: Arial, Helvetica, sans-serif;
+                
+            }
+            .inner-text{
+                font-weight: bold;
+            }
+            button{
+                width:100%;
+                padding:2%;
+                border:none;
+                border-radius:5px;
+                background-color: navy;
+                color:white;
+                margin-top:5px;
+            }
+
+    </style>
+    <body>
+        <div class="container">
+            <div class="inner-container">
+                <i class="fa fa-check-circle fa-3x" aria-hidden="true"></i>
+            <p><h1>Thanks for <br/>subscribing!</h1></p>
+            <p class="text">A confirmation mail has been sent to<br/> <span class="inner-text"></span>.Please open it and click<br/>
+            the button inside to confirm your subscription.</p>
+            <button>Dismiss message </button>
+
+            </div>
+            
+        </div>
+        <script>
+            window.addEventListener("load",()=>{
+                let params=new URLSearchParams(window.location.search);
+                let emailInput=params.get("mail");
+                // console.log(typeof(emailInput));
+                let varyfiedEmail=document.querySelector(".inner-text");
+                varyfiedEmail.textContent=emailInput;
+            })
+                
+            
+            
+        </script>
+    </body>
+</html>
